@@ -25,22 +25,53 @@ const pokemonTeamSchema = new mongoose.Schema({
 })
 
 const gymLeaderSchema = new mongoose.Schema({
-    name:String, //The name
-    region:String,  //The region...
-    pokeTeam:{ //This one uses the custom schema for team
-        type:[pokemonTeamSchema],
-        required:true
-    },
-    description:String, //Description...
-    motto:String, //The leader's Moto
-    spritePath :String, //I assume we can feed the string to HTMl, Its the path relative to the project's file directory..
-    badgePath: String //Similar functionality from the one uptop...
+   name:String,
+   region:String,
+   town:String,
+   badge:String,
+   specialty:String,
+   aceLevel:String,
+   motto:String
 })
 
 gymLeaderModel = new mongoose.model(//NOw this bugger creates the model for mongoose. Now I assume we can store it in MongoDB as is.
     'GymLeader',
     gymLeaderSchema
 )
+
+
+
+
+//Post and Other Functions
+
+app.post('/api/leaders', async (req, res) =>{
+    const leader = new gymLeaderModel(req.body);
+    await leader.save();
+    res.send(leader);console.log("Added a new Leader: ", leader)
+})
+
+app.get('api/leaders', async(req,res) =>{
+    const leaders = new gymLeaderModel.find({});
+    res.send(leaders); console.log("Fetched all leader entries: ", leaders);
+})
+
+app.delete('api/leaders/:id', async(req,res) =>{
+    try{
+        //We use custom delete function here...
+    }
+})
+
+app.update('api/leaders/:id', async(req,res) =>{
+    try{
+
+    }
+})
+
+
+
+
+
+
 
 
 
