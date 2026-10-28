@@ -1,46 +1,49 @@
-<h2>Register a Gym Leader</h2>
+
+<h2>{{ isEditMode ? 'Edit Gym Leader' : 'Register Gym Leader' }}</h2>
+
+@if (errorMessage) {
+  <p class="error">{{ errorMessage }}</p>
+}
 
 <form [formGroup]="leaderForm" (ngSubmit)="onSubmit()">
-  <label>
-    Name
-    <input formControlName="name">
-  </label>
+  <label for="name">Name</label>
+  <input id="name" formControlName="name" />
 
-  <label>
-    Region
-    <select formControlName="region">
-      <option value="Kanto">Kanto</option>
-      <option value="Johto">Johto</option>
-      <option value="Hoenn">Hoenn</option>
-    </select>
-  </label>
+  <label for="region">Region</label>
+  <select id="region" formControlName="region">
+    <option value="Kanto">Kanto</option>
+    <option value="Johto">Johto</option>
+    <option value="Hoenn">Hoenn</option>
+  </select>
 
-  <label>
-    Town
-    <input formControlName="town">
-  </label>
+  <label for="town">Town</label>
+  <input id="town" formControlName="town" />
 
-  <label>
-    Badge
-    <input formControlName="badge">
-  </label>
+  <label for="badge">Badge</label>
+  <input id="badge" formControlName="badge" />
 
-  <label>
-    Specialty
-    <input formControlName="specialty">
-  </label>
+  <label for="specialty">Specialty</label>
+  <input id="specialty" formControlName="specialty" />
 
-  <label>
-    Ace Level
-    <input type="number" formControlName="aceLevel">
-  </label>
+  <label for="aceLevel">Ace Level</label>
+  <input
+    id="aceLevel"
+    type="number"
+    formControlName="aceLevel"
+    min="1"
+    max="100"
+  />
 
-  <label>
-    Motto
-    <textarea formControlName="motto"></textarea>
-  </label>
+  <label for="motto">Motto (optional)</label>
+  <textarea
+    id="motto"
+    formControlName="motto"
+    maxlength="150"
+  ></textarea>
 
-  <button type="submit" [disabled]="leaderForm.invalid">
-    Add Leader
+  <button type="submit">
+    {{ isEditMode ? 'Save Changes' : 'Add Leader' }}
   </button>
+
+  <a routerLink="/leaders">Cancel</a>
 </form>

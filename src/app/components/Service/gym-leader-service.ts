@@ -26,6 +26,12 @@ export class GymLeaderService {
         return this.http.post<GymLeader>(this.apiURL,leader);
     }
 
+    getLeader(id: string) {
+         return this.http.get<GymLeader>(`${this.apiURL}/${id}`);
+    }
+    updateLeader(id: string, leader: any) {
+     return this.http.put<any>(`${this.apiURL}/${id}`, leader);
+    }
 
 
     
