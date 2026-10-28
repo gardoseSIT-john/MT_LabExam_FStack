@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-not-found',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './not-found.html',
-  styleUrl: './not-found.css'
+  templateUrl: './notfound.html',
+  styleUrl: './notfound.css'
 })
 export class NotFoundComponent {}
