@@ -6,13 +6,8 @@ export interface GymLeader{
     town:String;
     badge:String;
     specialty:String;
-    aceLevel:String;
+    aceLevel:number;
     motto:String;
 
-    // Try to add other info later
-    //Images cannot be implemented since MongoDB doesnt store img.
-    //Implement image if and only if we find a site that provides those
-    //images for us. While no, do not render.
 
-
-}
+}   

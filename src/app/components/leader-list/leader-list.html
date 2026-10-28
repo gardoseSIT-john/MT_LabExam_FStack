@@ -1,0 +1,20 @@
+<h2>Gym Leaders</h2>
+
+<button routerLink="/leaders/new">Add Gym Leader</button>
+
+@if (leaderService.leaders().length === 0) {
+  <p>No Gym Leaders found.</p>
+}
+
+@for (leader of leaderService.leaders(); track leader._id) {
+  <article>
+    <h3>{{ leader.name }}</h3>
+    <p>Region: {{ leader.region }}</p>
+    <p>Town: {{ leader.town }}</p>
+    <p>Badge: {{ leader.badge }}</p>
+    <p>Specialty: {{ leader.specialty }}</p>
+    <p>Ace Level: {{ leader.aceLevel }}</p>
+    <p>Motto: {{ leader.motto }}</p>
+  </article>
+  <hr>
+}

@@ -1,0 +1,46 @@
+<h2>Register a Gym Leader</h2>
+
+<form [formGroup]="leaderForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name
+    <input formControlName="name">
+  </label>
+
+  <label>
+    Region
+    <select formControlName="region">
+      <option value="Kanto">Kanto</option>
+      <option value="Johto">Johto</option>
+      <option value="Hoenn">Hoenn</option>
+    </select>
+  </label>
+
+  <label>
+    Town
+    <input formControlName="town">
+  </label>
+
+  <label>
+    Badge
+    <input formControlName="badge">
+  </label>
+
+  <label>
+    Specialty
+    <input formControlName="specialty">
+  </label>
+
+  <label>
+    Ace Level
+    <input type="number" formControlName="aceLevel">
+  </label>
+
+  <label>
+    Motto
+    <textarea formControlName="motto"></textarea>
+  </label>
+
+  <button type="submit" [disabled]="leaderForm.invalid">
+    Add Leader
+  </button>
+</form>
